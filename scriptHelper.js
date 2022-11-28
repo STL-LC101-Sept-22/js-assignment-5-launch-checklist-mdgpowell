@@ -39,7 +39,6 @@ function validateInput(testInput) {
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    //What is "list"?
-   const faultyItemsDiv = document.getElementById("faultyItems");
    const pilotStatus = document.getElementById("pilotStatus");
    const copilotStatus = document.getElementById("copilotStatus");
    const fuelStatus = document.getElementById("fuelStatus");
@@ -51,7 +50,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
    
    if (fuelLevel < 10000) {
-    faultyItemsDiv.style.visibility = "visible";
+    list.style.visibility = "visible";
     fuelStatus.innerHTML = "Fuel level too low for launch";
     launchStatus.innerHTML = "Shuttle Not Ready for Launch";
     launchStatus.style.color = "rgb(199, 37, 78)";
@@ -59,7 +58,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     fuelStatus.innerHTML = "Fuel level high enough for launch"
    }
    if (cargoLevel > 10000) {
-    faultyItemsDiv.style.visibility = "visible";
+    list.style.visibility = "visible";
     cargoStatus.innerHTML = "Cargo mass too heavy for launch"
     launchStatus.innerHTML = "Shuttle Not Ready for Launch"
     launchStatus.style.color = "rgb(199, 37, 78)";
@@ -69,7 +68,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    if (fuelLevel >= 10000 && cargoLevel <= 10000) {
     launchStatus.style.color = "rgb(65, 159, 106)";
     launchStatus.innerHTML = "Shuttle is Ready for Launch";
-    faultyItemsDiv.style.visibility = "hidden";
+    list.style.visibility = "visible";
    }
 }
 
