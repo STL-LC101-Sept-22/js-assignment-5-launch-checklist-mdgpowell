@@ -33,7 +33,7 @@ window.addEventListener("load", function() {
         } else if (validateInput(fuelLevel.value) === "Not a Number" || validateInput(cargoMass.value) === "Not a Number") {
             alert("Fuel level and cargo mass must be numbers.")
         } else {
-            let list = ""
+            let list = document.getElementById("faultyItems")
             formSubmission(document, list, pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value);
         }
     })
