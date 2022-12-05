@@ -68,7 +68,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    if (fuelLevel >= 10000 && cargoLevel <= 10000) {
     launchStatus.style.color = "rgb(65, 159, 106)";
     launchStatus.innerHTML = "Shuttle is Ready for Launch";
-    list.style.visibility = "hidden";
+    list.style.visibility = "visible";
    }
 }
 
