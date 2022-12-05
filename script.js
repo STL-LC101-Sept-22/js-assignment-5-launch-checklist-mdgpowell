@@ -22,15 +22,26 @@ window.addEventListener("load", async function() {
     submitButton.addEventListener("click", function(event) {
         //Validate input
         event.preventDefault();
-        document.getElementById("faultyItems").style.visibility = "hidden";
+        let list = document.getElementById("faultyItems");
+        let launchStatus = document.getElementById("launchStatus");
+
         if (validateInput(pilotName.value) === "Empty" || validateInput(copilotName.value) === "Empty" || validateInput(fuelLevel.value) === "Empty" || validateInput(cargoMass.value) === "Empty") {
+            list.style.visibility = "hidden";
+            launchStatus.innerHTML = "Awaiting Information Before Launch";
+            launchStatus.style.color = "black";
             alert("All fields are required.");
         } else if (validateInput(fuelLevel.value) === "Not a Number" || validateInput(cargoMass.value) === "Not a Number") {
+            list.style.visibility = "hidden";
+            launchStatus.innerHTML = "Awaiting Information Before Launch";
+            launchStatus.style.color = "black";
             alert("Fuel level and cargo mass must be numbers.")
-        } else if (validateInput(pilotName.value) === "Is a Number" || validateInput(copilotName) === "Is a Number") {
+        } else if (validateInput(pilotName.value) === "Is a Number" || validateInput(copilotName.value) === "Is a Number") {
+            list.style.visibility = "hidden";
+            launchStatus.innerHTML = "Awaiting Information Before Launch";
+            launchStatus.style.color = "black";
             alert("Pilot name and copilot name must be strings.")
         } else {
-            let list = document.getElementById("faultyItems")
+            
             formSubmission(document, list, pilotName.value, copilotName.value, fuelLevel.value, cargoMass.value);
         }
     })
